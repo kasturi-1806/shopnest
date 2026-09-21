@@ -3,18 +3,14 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProductGrid from "../components/ProductGrid";
 import Loading from "../components/Loading";
-
 const categoryIcons = {
   electronics: "📱",
   jewelery: "💎",
   "men's clothing": "👕",
-  "women's clothing": "👗"
-};
-
+  "women's clothing": "👗"};
 function Home() {
   const { products, categories, loading } = useSelector((state) => state.products);
   const featured = products.slice(0, 4);
-
   return (
     <div>
       <section className="hero-section">
@@ -30,21 +26,18 @@ function Home() {
             <Link className="secondary-btn" to="/products">Explore Categories</Link>
           </div>
         </div>
-
         <div className="hero-visual">
           {products.slice(0, 3).map((product, index) => (
             <Link
               to={`/products/${product.id}`}
               key={product.id}
-              className={`hero-product hero-product-${index + 1}`}
-            >
+              className={`hero-product hero-product-${index + 1}`}>
               <img src={product.image} alt="" />
             </Link>
           ))}
           <div className="hero-orb" />
         </div>
       </section>
-
       <section className="section-container">
         <div className="section-heading">
           <div>
@@ -53,14 +46,12 @@ function Home() {
           </div>
           <Link to="/products">View all →</Link>
         </div>
-
         <div className="category-grid">
           {categories.map((category) => (
             <Link
               to={`/products?category=${encodeURIComponent(category)}`}
               className="category-card"
-              key={category}
-            >
+              key={category}>
               <span className="category-icon">{categoryIcons[category] || "🛍️"}</span>
               <span>{category}</span>
               <small>Explore collection →</small>
@@ -68,7 +59,6 @@ function Home() {
           ))}
         </div>
       </section>
-
       <section className="section-container soft-section">
         <div className="section-heading">
           <div>
@@ -77,22 +67,19 @@ function Home() {
           </div>
           <Link to="/products">See everything →</Link>
         </div>
-
         {loading && !products.length ? (
           <Loading />
         ) : (
           <ProductGrid products={featured} />
         )}
       </section>
-
       <section className="section-container">
         <div className="section-heading centered-heading">
           <div>
             <span className="eyebrow">THE SHOPNEST DIFFERENCE</span>
             <h2>Shopping made easier</h2>
           </div>
-        </div>
-
+        </div
         <div className="benefit-grid">
           <div className="benefit-card"><span>🚚</span><h3>Fast Delivery</h3><p>Get your favorites moving toward you quickly.</p></div>
           <div className="benefit-card"><span>🔒</span><h3>Secure Shopping</h3><p>A clean and trustworthy checkout experience.</p></div>
@@ -100,7 +87,6 @@ function Home() {
           <div className="benefit-card"><span>⭐</span><h3>Quality Products</h3><p>Discover highly rated picks worth your attention.</p></div>
         </div>
       </section>
-
       <section className="cta-section">
         <div>
           <span className="eyebrow">READY WHEN YOU ARE</span>
