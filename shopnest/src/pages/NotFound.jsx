@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 function NotFound() {
   return (
     <div className="page-container">
@@ -13,5 +12,4 @@ function NotFound() {
     </div>
   );
 }
-
 export default NotFound;
